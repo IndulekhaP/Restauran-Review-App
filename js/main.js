@@ -165,7 +165,7 @@ createRestaurantHTML = (restaurant) => {
   image.tabIndex = '4';
   li.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
   name.tabIndex = '4';
   li.append(name);
@@ -214,4 +214,3 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
-
