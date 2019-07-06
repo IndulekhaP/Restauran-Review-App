@@ -12,7 +12,7 @@ Chrome web server was used for running the application.
 4. Set the port(8000).
 5. Expand Show Advanced settings
 6. Select set CORS headers
-7. Update 12th line in dbhelper.js file with your server name and port.
+7. **Update 12th line in dbhelper.js file with your server name and port. Please see screenshot url_specified_in dbhelper_file.jpg in screenshots folder.**
 8. Open the URL in any browser.
 
 
