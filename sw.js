@@ -1,4 +1,4 @@
-const cacheName = "Restaraunt_Reviews_v7";
+var cacheName = "Restaraunt_Reviews_v2";
 
 const cacheAssets = [
     '/',
@@ -53,16 +53,22 @@ self.addEventListener('activate', event => {
     )
 })
 
-//Call fetch event
 self.addEventListener('fetch', event => {
+    console.log("Service Worker: fetching");
     event.respondWith(
-    fetch(event.request).then(function(response){
-        return response;
-    })
-    .catch(function() {
-      console.log('getting from cache');
-      return caches.match(event.request);
-    })
-  );
+        fetch(event.request)
+            .then( res => {
+                const resClone = res.clone();
+                console.log(event.request);
+                console.log(resClone);
+                caches
+                    .open(cacheName)
+                    .then(cache => {
+                        cache.put(event.request, resClone);
+                    });
+                return res;
+            }).catch(function(err){
+                return caches.match(event.request).then(res => res);
+            })
+    );
 });
-
